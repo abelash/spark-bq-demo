@@ -25,7 +25,7 @@ object SparkBQConnector  {
 
     // Use the Cloud Storage bucket for temporary BigQuery export data used
     // by the connector.
-    val bucket = "abe-bq-writer"
+    val bucket = "abe-bq-load"
     spark.conf.set("temporaryGcsBucket", bucket)
 
     // Load data in from BigQuery.
@@ -47,6 +47,6 @@ object SparkBQConnector  {
       .format("bigquery")
       .option("table", "wordcount_dataset.wordcount_output")
       .save()
-    println("Starting to BQ COMPLETED")
+    println("Saving to BQ COMPLETED")
   }
 }
